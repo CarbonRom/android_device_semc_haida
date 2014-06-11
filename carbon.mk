@@ -16,7 +16,7 @@
 $(call inherit-product, device/semc/haida/full_haida.mk)
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_phone.mk)
+$(call inherit-product, vendor/carbon/config/common_phone.mk)
 
 # Optional CM packages
 PRODUCT_PACKAGES += \
@@ -33,16 +33,10 @@ PRODUCT_PACKAGES += \
 # Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=MT11i \
-    PRODUCT_DEVICE=MT11i \
     BUILD_FINGERPRINT="SEMC/MT11i_1254-2184/MT11i:4.0.4/4.1.B.0.587/tL1_3w:user/release-keys" \
     PRIVATE_BUILD_DESC="MT11i-user 4.0.4 4.1.B.0.587 tL1_3w test-keys"
 
 # Device identifier. This must come after all inclusions
-PRODUCT_NAME := cm_haida
-PRODUCT_GMS_CLIENTID_BASE := android-sonyericsson
-
-# Release name
-PRODUCT_RELEASE_NAME := haida
-
-# Custom tag for unofficial builds
-TARGET_UNOFFICIAL_BUILD_ID := LegacyXperia
+PRODUCT_NAME := carbon_haida
+PRODUCT_DEVICE := haida
+PRODUCT_PROPERTY_OVERRIDES += ro.buildzipid=carbon.haida.$(shell date +%m%d%y).$(shell date +%H%M%S)
